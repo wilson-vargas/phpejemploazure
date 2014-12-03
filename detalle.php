@@ -6,11 +6,11 @@
     }
      
     if ( null==$id ) {
-        header("Location: index.php");
+        header('Location: index.php');
     } else {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM contacto where IdContacto = ?";
+        $sql = 'SELECT * FROM contacto where IdContacto = ?';
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         $data = $q->fetch(PDO::FETCH_ASSOC);
@@ -39,7 +39,7 @@
                         <label class="control-label">Nombre: </label>
                         <div class="controls">
                             <label class="checkbox">
-                                <?php echo $data['Nombre'];?>
+                                <?php echo htmlentities($data['Nombre']);?>
                             </label>
                         </div>
                       </div>
@@ -47,7 +47,7 @@
                         <label class="control-label">Apellido:</label>
                         <div class="controls">
                             <label class="checkbox">
-                                <?php echo $data['Apellido'];?>
+                                <?php echo htmlentities($data['Apellido']);?>
                             </label>
                         </div>
                       </div>
@@ -55,7 +55,7 @@
                         <label class="control-label">Correo:</label>
                         <div class="controls">
                             <label class="checkbox">
-                                <?php echo $data['Correo'];?>
+                                <?php echo htmlentities($data['Correo']);?>
                             </label>
                         </div>
                       </div>
@@ -63,7 +63,7 @@
                         <label class="control-label">Telefono:</label>
                         <div class="controls">
                             <label class="checkbox">
-                                <?php echo $data['Telefono'];?>
+                                <?php echo htmlentities($data['Telefono']);?>
                             </label>
                         </div>
                       </div>
@@ -71,7 +71,7 @@
                         <label class="control-label">Direccion:</label>
                         <div class="controls">
                             <label class="checkbox">
-                                <?php echo $data['Direccion'];?>
+                                <?php echo htmlentities($data['Direccion']);?>
                             </label>
                         </div>
                       </div>                   

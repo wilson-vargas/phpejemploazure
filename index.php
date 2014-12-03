@@ -30,8 +30,8 @@
                    $sql = 'SELECT * FROM contacto';
                    foreach ($pdo->query($sql) as $row) {
                             echo '<tr>';
-                            echo '<td>'. $row['Nombre'] . '</td>';
-                            echo '<td>'. $row['Apellido'] . '</td>';
+                            echo '<td>'. htmlentities($row['Nombre']) . '</td>';
+                            echo '<td>'. htmlentities($row['Apellido']) . '</td>';
                             echo '<td><a href="detalle.php?id='.$row['IdContacto'].'">Ver Contacto</a></td>';
                             echo '</tr>';
                    }
